@@ -19,9 +19,10 @@ public class TaskListMapperImp implements TaskListMapper{
 
     @Override
     public TaskList taskListFromDto(TaskListDto dto) {
-      return new TaskList(dto.id()
-      ,dto.title(),dto.description(),null,null,Optional.ofNullable(dto.tasks()).map(tasks -> tasks.stream().map(taskMapper::taskfromDto).toList()).orElse(null)
+      return new TaskList( dto.id(),dto.title(),dto.description(),null,null,
+              Optional.ofNullable(dto.tasks()).map(tasks -> tasks.stream().map(taskMapper::taskfromDto).toList()).orElse(null)
               );
+      //this method takes dto and transfer it to pojo to deal with it
     }
 
     @Override
